@@ -5,6 +5,8 @@ on:
   workflow_dispatch:
   skip-if-match: 'is:pr is:open in:title "[deps] "'
 
+if: github.repository != 'bekk/bekk-basen-agentic-workflows'
+
 timeout-minutes: 30
 
 permissions:
