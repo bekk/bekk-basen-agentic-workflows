@@ -1,7 +1,6 @@
 ---
 description: Update vulnerable and outdated dependencies; open a PR when changes are needed
 on:
-  schedule: weekly
   workflow_dispatch:
   skip-if-match: 'is:pr is:open in:title "[deps] "'
 
