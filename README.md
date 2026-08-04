@@ -54,4 +54,3 @@ Manual dependency updates (vulnerable first, then small safe bumps). Opens a `[d
 
 - Trigger: `workflow_dispatch` only
 - Skips if an open `[deps]` PR already exists
-- Does not run in this catalog repo
