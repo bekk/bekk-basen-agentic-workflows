@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install gh-aw
+        run: gh extension install github/gh-aw
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compile workflows
+        run: gh aw compile --verbose
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check lockfiles are up to date
+        run: |
+          if ! git diff --exit-code -- .github/workflows '*.lock.yml' .gitattributes .github/aw; then
+            echo "::error::Compiled lockfiles are out of date. Run 'gh aw compile' and commit the result."
+            exit 1
+          fi

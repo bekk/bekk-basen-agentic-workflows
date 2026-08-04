@@ -36,6 +36,16 @@ gh aw run update-dependencies --repo bekk/<target-repo>
 
 Or: Actions → workflow → Run workflow.
 
+## Developing workflows
+
+After editing a `.md` workflow, compile and commit both files:
+
+```bash
+gh aw compile
+```
+
+CI runs the same check on PRs/`main` and fails if lockfiles are stale.
+
 ## Workflows
 
 ### update-dependencies
