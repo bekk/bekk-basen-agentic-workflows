@@ -8,7 +8,7 @@ Workflows live in `.github/workflows/*.md`. Other repos install them from here; 
 
 On the **target** repo (or org):
 
-1. [gh-aw](https://github.com/github/gh-aw) CLI: `curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash`
+1. [gh-aw](https://github.com/github/gh-aw) CLI: `gh extension install github/gh-aw`
 2. AI engine secret, e.g. `COPILOT_GITHUB_TOKEN` (fine-grained PAT with Copilot Requests: Read), or `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GEMINI_API_KEY`
 
 ## Install a workflow
