@@ -5,6 +5,8 @@ on:
   workflow_dispatch:
   skip-if-match: 'is:pr is:open in:title "[deps] "'
 
+inlined-imports: true
+
 timeout-minutes: 30
 
 permissions:
