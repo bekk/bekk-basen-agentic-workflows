@@ -53,6 +53,8 @@ Update dependencies in this repo. Prefer security fixes. Keep changes small.
    - **Vulnerable packages first** (patch/minor that fix CVEs).
    - Then other outdated direct deps only if the bump is low-risk (patch, or minor with no breaking signals).
 4. Refresh lockfiles. Do not invent new dependencies or major-version jumps unless required to fix a vulnerability and no safer path exists.
+   - For transitive vulnerabilities, prefer a plain lockfile-only fix (e.g. `npm update <pkg>` / regenerated 
+     lockfile) over adding an `overrides` entry. Check whether the parent dependency's own declared range already permits the patched version — if so, a lockfile refresh alone resolves it. Only add an override when the dependency tree has a genuine conflicting range that prevents natural resolution to the patched version, and note that reasoning explicitly in the PR body.
 5. Run the repo’s normal install/build/test commands if they are obvious and cheap. Skip heavy suites.
 6. If files changed, open one PR via `create-pull-request`. Title: `[deps] …`. Body: what changed, why (CVE/alert IDs when known), and how you verified.
 7. If nothing needs updating, call `noop`.
